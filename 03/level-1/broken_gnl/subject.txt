@@ -1,0 +1,11 @@
+Assignment name  : broken_GNL
+Expected files   : get_next_line.c get_next_line.h
+Allowed functions: read, malloc, free
+--------------------------------------------------------------------------------------
+
+You must fix the following function:
+
+char *get_next_line(int fd);
+
+Both files get_next_line.c and get_next_line.h are given at the exam.
+You may need to fix other functions too.
