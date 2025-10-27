@@ -8,11 +8,18 @@ char	*get_next_line(int fd);
 // resto de funciones
 	// (con código, pdte transcribirlo del subject del examen)
 
-char	*ft_strchr(const char *s, char c);
-
+char	*ft_strchr(const char *s, char c)
+{
+	while (*s != c)
+		s++;
+	if (*s == c)
+		return (s);
+	else
+		return (NULL);
+}
 void	*ft_memcpy(void *dst, void *src, size_t n)
 {
-	while (n-- > 0)
+	while (--n > 0)
 		((char *)dst)[n - 1] = ((char *)src)[n - 1];
 	return (dst);
 }
