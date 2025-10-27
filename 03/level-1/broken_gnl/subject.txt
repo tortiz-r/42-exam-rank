@@ -3,9 +3,35 @@ Expected files   : get_next_line.c get_next_line.h
 Allowed functions: read, malloc, free
 --------------------------------------------------------------------------------------
 
-You must fix the following function:
-
+Repara la función get_next_line en el archivo get_next_line.c, cuyo prototipo debe ser
 char *get_next_line(int fd);
 
-Both files get_next_line.c and get_next_line.h are given at the exam.
-You may need to fix other functions too.
+Puede que tengas que reparar otras funciones.
+
+Descripción de función get_next_line:
+
+La función debe devolver una linea leida desde el descriptor de archivo pasado como parámetro.
+Una linea leida se define como una sucesión de 0-n caracteres terminada en \n (código ASCII 0x0a) o en el End Of File (EOF).
+
+La linea debe devolverse con el '\n' si hay uno al final de la línea leída.
+
+Cuando llegue al EOF debe almacenar el contenido actual del buffer en un (char *) y devolverlo.
+Si el buffer está vacío, debe devolver NULL.
+
+En caso de error, devuelve NULL.
+
+Si no se devuelve NULL, el puntero devuelto debe poder liberarse con free.
+
+Tu programa se compilará con la flag -D BUFFER_SIZE=xx, que debe usarse como tamaño del buffer en las llamadas a read dentro de las funciones.
+
+La funcion no debe tener leaks de memoria (memleaks).
+
+Cuando llegue al EOF, tu función no debe tener ninfuna memoria reservada con malloc excepto la línea que se devuelve.
+
+Llamar a tu función get_next_line en bucle permitirá leer el texto disponible en un descriptor de archivo linea a linea hasta el final del texto, sin importar el tamaño del texto ni cada linea.
+
+Asegúrate que tu función se comporta correctamente al leer desde un archivo, desde el "standard output" (stdout), desde una redirección, etc.
+
+No se realizará otra llamada al fd entre dos llamadas consecutivas a get_next_line.
+
+Se considera que get_next_line tiene un comportamiento indefinido al leer un archivo binario.
